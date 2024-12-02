@@ -23,3 +23,12 @@ let deposit = prompt('deposit amount')
 mutableBalance += +deposit
 
 console.log('your new balance is', mutableBalance)
+
+
+/*
+Usefull Extensions
+
+ESLint = code quality checks
+Path Intellisense = helps with path imports
+Prettier = code formatter (with shortcut key shift alt f)
+*/
