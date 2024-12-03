@@ -1,0 +1,4 @@
+React is a lib
+Angular is a framework
+
+npm create vite@5.2 hello-world -- --template react-swc-ts

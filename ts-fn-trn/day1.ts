@@ -22,9 +22,9 @@
         const newAmount : number = Number(newAmountInput.value)
         // in oone line 
         console.log((document.getElementById('amount') as HTMLInputElement).value)
-        const trn3: Transaction = {description:newDescription, amount:newAmount, date:new Date}
+        const newTrn: Transaction = {description:newDescription, amount:newAmount, date:new Date}
 
-        this.trnArray.push(trn3)
+        this.trnArray.push(newTrn)
 
         console.log(this.trnArray)
     }
