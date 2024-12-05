@@ -1,0 +1,57 @@
+React is a lib
+Angular is a framework
+
+npm create vite@5.2 hello-world -- --template react-swc-ts
+
+
+# Steps for MFEs
+- 0 Create the vite project using v5.2 
+- 1 Install dependencies: webpack-cli  webpack-merge html-webpack-plugin ts-loader style-loader css-loader 
+- 2 Create and configure the webpack.config.cjs file at the root of the MFE
+- 3 Add start option in package.json -> webpack serve:     "start": "webpack serve",
+- 4 NoEmit to false in tsconfig.json and remove     "allowImportingTsExtensions": true,
+- 5 import App from './App.js' --> import App from './App' 
+-------
+- 5 Rename main.tsx -> index.tsx (care about webpack config and index.html)
+``
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+
+module.exports = {
+    mode : 'development',
+    devServer : {
+        port : 3009,
+        historyApiFallback : {
+            index : '/index.html'
+        },
+    },
+    resolve: {
+        extensions: [".ts", ".tsx", ".js", ".jsx"],
+      },
+    plugins : [
+        new HtmlWebpackPlugin({
+            template : './index.html'
+        }),
+        new ModuleFederationPlugin({
+            name : 'helloworld',
+            filename : 'remoteEntry.js',
+            exposes :
+                {'./HelloWorld' : '/src/index'}
+            }
+        )
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx|tsx|ts)$/,
+                loader: "ts-loader",
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use: [ 'style-loader', 'css-loader' ]
+            }
+        ]
+    }
+};
