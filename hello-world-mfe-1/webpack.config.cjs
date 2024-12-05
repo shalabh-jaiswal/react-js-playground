@@ -1,19 +1,3 @@
-React is a lib
-Angular is a framework
-
-npm create vite@5.2 hello-world -- --template react-swc-ts
-
-
-# Steps for MFEs
-- 0 Create the vite project using v5.2 
-- 1 Install dependencies: webpack-cli  webpack-merge html-webpack-plugin ts-loader style-loader css-loader 
-- 2 Create and configure the webpack.config.cjs file at the root of the MFE
-- 3 Add start option in package.json -> webpack serve:     "start": "webpack serve",
-- 4 NoEmit to false in tsconfig.json and remove     "allowImportingTsExtensions": true,
-- 5 import App from './App.js' --> import App from './App' 
--------
-- 5 Rename main.tsx -> index.tsx (care about webpack config and index.html)
-``
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
@@ -55,3 +39,30 @@ module.exports = {
         ]
     }
 };
+
+
+// {
+//   "compilerOptions": {
+//     "target": "ES2020",
+//     "useDefineForClassFields": true,
+//     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+//     "module": "ESNext",
+//     "skipLibCheck": true,
+
+//     /* Bundler mode */
+//     "moduleResolution": "bundler",
+//     "resolveJsonModule": true,
+//     "isolatedModules": true,
+//     "noEmit": false,
+//     "jsx": "react-jsx",
+
+//     /* Linting */
+//     "strict": true,
+//     "noUnusedLocals": true,
+//     "noUnusedParameters": true,
+//     "noFallthroughCasesInSwitch": true
+//   },
+//   "include": ["src"],
+//   "references": [{ "path": "./tsconfig.node.json" }]
+// }
+

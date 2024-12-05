@@ -1,23 +1,13 @@
-import { useState } from 'react'
+
 import './App.css'
-import Greeting from './components/Greeting/Greeting'
-import Songs from './components/Songs/Songs'
-import { LikedSongs } from './components/Songs/Songs'
-import SongsForm from './components/Songs/SongsForm'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const likedSongs: LikedSongs[] = [{songName: 'song one', singer:'singer 1'}, {songName: 'song two', singer:'singer 2'}]
+  //const [count, setCount] = useState(0)
+
   return (
     <>
       {
-
-        
-      <div>
-      <Greeting message='Jello' color='Blue'/>
-      <Songs liked={likedSongs}/>
-      
-      </div>
+      <h1>Hello World MFE</h1>
       /* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />

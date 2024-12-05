@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SongsForm from "./SongsForm";
 // Define the type for props that the component will receive
 interface SongsProps {
     liked: LikedSongs[];
@@ -12,8 +13,6 @@ const Songs: React.FC<SongsProps> = ({ liked }): JSX.Element => {
         setLikedSongs([...likedSongs, song])
     }
 
-    //const likedSongs: LikedSongs[] = [{songName: 'song one', singer:'singer 1'}]
-
     ///const {message, color} = props
     return (
         <div>
@@ -25,7 +24,10 @@ const Songs: React.FC<SongsProps> = ({ liked }): JSX.Element => {
             ))}
 
             <button onClick={() => addSong({songName: 'New Song', singer: 'New Singer'})}>This is a button</button>
+
+            <SongsForm addSong={addSong}/>
         </div>
+
     )
 }
 
